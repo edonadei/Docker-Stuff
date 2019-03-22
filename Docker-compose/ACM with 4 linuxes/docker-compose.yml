@@ -1,0 +1,29 @@
+# Docker compose to start a CentOS with Ansible and 4 tests machines
+
+version: "2"
+services:
+    acm:
+        build: ../../Dockerfiles/acm
+        ports:
+            - 22:22
+    ubuntu-test1:
+        build: ../../Dockerfiles/test_client
+        ports:
+            - 22:23
+    ubuntu-test1:
+        build: ../../Dockerfiles/test_client
+        ports:
+            - 22:24
+    ubuntu-test1:
+        build: ../../Dockerfiles/test_client
+        ports:
+            - 22:25
+    ubuntu-test1:
+        build: ../../Dockerfiles/test_client
+        ports:
+            - 22:26
+            
+networks:
+    default:
+        external:
+            name: main
